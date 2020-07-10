@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(reemc_door)
+project(eurobench_reemc_door)
 
 find_package(catkin REQUIRED)
 
