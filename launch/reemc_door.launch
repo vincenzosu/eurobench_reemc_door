@@ -11,11 +11,11 @@
   <arg name="self_closing" default="n"/>
 
   <!-- start up world -->
-  <env name="GAZEBO_MODEL_PATH" value="$(find reemc_door)/models:$(optenv GAZEBO_MODEL_PATH)"/>
+  <env name="GAZEBO_MODEL_PATH" value="$(find eurobench_reemc_door)/models:$(optenv GAZEBO_MODEL_PATH)"/>
   <env name="GAZEBO_DOOR_MODEL_DIRECTION" value="$(arg direction)"/>
   <env name="GAZEBO_DOOR_MODEL_SELFCLOSE" value="$(arg self_closing)"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find reemc_door)/worlds/$(arg door).world"/>
+    <arg name="world_name" value="$(find eurobench_reemc_door)/worlds/$(arg door).world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
