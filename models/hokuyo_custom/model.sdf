@@ -47,7 +47,13 @@
             <resolution>0.01</resolution>
           </range>
         </ray>
-        <plugin name="laser" filename="libRayPlugin.so" />
+        <!-- <plugin name="laser" filename="libRayPlugin.so" />  -->
+        <plugin filename="libRayPlugin.so" name="laser">
+         <topicName>sensor/hokuyo1</topicName>
+         <frameName>door_frame</frameName>
+       </plugin>
+        
+        
         <always_on>1</always_on>
         <update_rate>30</update_rate>
         <visualize>true</visualize>
