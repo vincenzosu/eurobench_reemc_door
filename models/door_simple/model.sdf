@@ -173,7 +173,7 @@
   <plugin name="simple_door_config" filename="libsimple_door_config.so"/>
   <!-- HOKUYO -->
     <include>
-      <uri>model://hokuyo</uri>
+      <uri>model://hokuyo_custom</uri>             
       <pose>0.2 0.2 2.2 0 1.57 0</pose>
     </include>
     <joint name="hokuyo_joint" type="fixed">
@@ -182,7 +182,7 @@
     </joint>
     
     <include>
-      <uri>model://hokuyo</uri>
+      <uri>model://hokuyo_custom</uri>
       <pose>-0.2 -0.2 2.2 0 -1.57 0</pose>
     </include>
     <joint name="hokuyo_joint" type="fixed">
