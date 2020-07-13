@@ -176,7 +176,7 @@
       <uri>model://hokuyo</uri>
       <pose>0.2 0.2 2.3 0 1.57 0</pose>
     </include>
-    <joint name="hokuyo_joint" type="fixed">
+    <joint name="hokuyo_joint1" type="fixed">
       <child>hokuyo::link</child>
       <parent>chassis</parent>
     </joint>
@@ -185,7 +185,7 @@
       <uri>model://hokuyo</uri>
       <pose>0.4 0.21 2.3 0 1.57 0</pose>
     </include>
-    <joint name="hokuyo_joint" type="fixed">
+    <joint name="hokuyo_joint2" type="fixed">
       <child>hokuyo::link</child>
       <parent>chassis</parent>
     </joint>
@@ -194,7 +194,7 @@
       <uri>model://hokuyo</uri>
       <pose>0.6 0.22 2.3 0 1.57 0</pose>
     </include>
-    <joint name="hokuyo_joint" type="fixed">
+    <joint name="hokuyo_joint3" type="fixed">
       <child>hokuyo::link</child>
       <parent>chassis</parent>
     </joint>
@@ -203,7 +203,7 @@
       <uri>model://hokuyo</uri>
       <pose>0.8 0.23 2.3 0 1.57 0</pose>
     </include>
-    <joint name="hokuyo_joint" type="fixed">
+    <joint name="hokuyo_joint4" type="fixed">
       <child>hokuyo::link</child>
       <parent>chassis</parent>
     </joint>
