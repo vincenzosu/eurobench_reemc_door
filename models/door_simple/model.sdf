@@ -181,15 +181,7 @@
       <parent>chassis</parent>
     </joint>
     
-    <include>
-      <uri>model://hokuyo</uri>
-      <pose>0.4 0.21 2.3 0 1.57 0</pose>
-    </include>
-    <joint name="hokuyo_joint2" type="fixed">
-      <child>hokuyo::link</child>
-      <parent>chassis</parent>
-    </joint>
-    
+
   
   <!-- HOKUYO -->
   </model>
