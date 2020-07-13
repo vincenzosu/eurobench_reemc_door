@@ -174,7 +174,7 @@
   <!-- HOKUYO -->
     <include>
       <uri>model://hokuyo_custom</uri>             
-      <pose>0.2 0.4 2.2 0 -1.57 1.57</pose>
+      <pose>0.2 0.4 2.2 0 -1.57 0</pose>
     </include>
     <joint name="hokuyo_joint" type="fixed">
       <child>hokuyo::link</child>
@@ -183,13 +183,12 @@
     
     <include>
       <uri>model://hokuyo_custom</uri>
-      <pose>-0.2 -0.4 2.2 0 -1.57 1.57</pose>
+      <pose>-0.2 -0.4 2.2 0 -1.57 0</pose>
     </include>
-    <joint name="hokuyo_joint2" type="fixed">
+    <joint name="hokuyo_joint" type="fixed">
       <child>hokuyo::link2</child>
       <parent>door</parent>
     </joint>
-    
   <!-- HOKUYO -->
   </model>
 </sdf>
