@@ -173,7 +173,7 @@
   <plugin name="simple_door_config" filename="libsimple_door_config.so"/>
   <!-- HOKUYO -->
     <sensor type="ray" name="sonar">
-          <pose>0.25 0 0 0 0 0</pose>
+          <pose>0.25 0.2 2 0 0 0</pose>
           <update_rate>5</update_rate>
           <ray>
             <scan>
