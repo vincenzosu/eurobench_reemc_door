@@ -171,13 +171,14 @@
       </physics>
     </joint>
   <plugin name="simple_door_config" filename="libsimple_door_config.so"/>
+  
   <!-- HOKUYO -->
     <include>
       <uri>model://hokuyo_custom</uri>             
       <pose>0.2 0.6 2.2 0 1.57 1.57</pose>
     </include>
     <joint name="hokuyo_joint_1" type="fixed">
-      <child>hokuyo::link</child>
+      <child>hokuyo::first::link</child>
       <parent>door</parent>
     </joint>
     
@@ -186,7 +187,7 @@
       <pose>-0.2 -0.6 2.2 0 1.57 1.57</pose>
     </include>
     <joint name="hokuyo_joint_2" type="fixed">
-      <child>hokuyo::link2</child>
+      <child>hokuyo::second::link</child>
       <parent>door</parent>
     </joint>
     
