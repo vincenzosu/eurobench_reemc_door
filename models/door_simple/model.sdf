@@ -180,7 +180,6 @@
       <child>hokuyo::link</child>
       <parent>door</parent>
     </joint>
-    <plugin name="laser" filename="libRayPlugin.so" />
     
     <include>
       <uri>model://hokuyo_custom</uri>
@@ -190,7 +189,7 @@
       <child>hokuyo::link2</child>
       <parent>door</parent>
     </joint>
-    <plugin name="laser" filename="libRayPlugin.so" />
+    
   <!-- HOKUYO -->
   </model>
 </sdf>
