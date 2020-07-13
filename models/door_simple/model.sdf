@@ -183,15 +183,6 @@
     
     <include>
       <uri>model://hokuyo</uri>
-      <pose>0.25 0.2 2.3 0 1.57 0</pose>
-    </include>
-    <joint name="hokuyo_joint" type="fixed">
-      <child>hokuyo::link</child>
-      <parent>chassis</parent>
-    </joint>
-    
-    <include>
-      <uri>model://hokuyo</uri>
       <pose>0.3 0.2 2.3 0 1.57 0</pose>
     </include>
     <joint name="hokuyo_joint" type="fixed">
@@ -201,7 +192,16 @@
     
     <include>
       <uri>model://hokuyo</uri>
-      <pose>0.35 0.2 2.3 0 1.57 0</pose>
+      <pose>0.4 0.2 2.3 0 1.57 0</pose>
+    </include>
+    <joint name="hokuyo_joint" type="fixed">
+      <child>hokuyo::link</child>
+      <parent>chassis</parent>
+    </joint>
+    
+    <include>
+      <uri>model://hokuyo</uri>
+      <pose>0.5 0.2 2.3 0 1.57 0</pose>
     </include>
     <joint name="hokuyo_joint" type="fixed">
       <child>hokuyo::link</child>
