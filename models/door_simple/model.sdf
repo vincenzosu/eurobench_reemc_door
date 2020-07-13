@@ -184,7 +184,7 @@
           <laser_retro>100.0</laser_retro>
         </visual>
         <collision name="collision_box">
-          <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+          <pose>0.25 0.2 2.0 0.0 0.0 0.0</pose>
           <max_contacts>250</max_contacts>
           <geometry>
             <box>
