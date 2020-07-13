@@ -183,9 +183,9 @@
     
     <include>
       <uri>model://hokuyo</uri>
-      <pose>0.2 -0.2 2.2 0 1.57 0</pose>
+      <pose>-0.2 -0.2 2.2 0 -1.57 0</pose>
     </include>
-    <joint name="hokuyo_joint2" type="fixed">
+    <joint name="hokuyo_joint" type="fixed">
       <child>hokuyo::link2</child>
       <parent>door</parent>
     </joint>
