@@ -149,12 +149,17 @@
     
     <!-- HOKUYO VINCENZO        *************************** -->
     
-
+	  <joint name="hokuyo_joint_ccw_left" type="fixed">
+		<axis xyz="0 1 0" />
+		<origin xyz="0 0 1" rpy="0 0 0"/>
+		<parent link="frame"/>
+		<child link="hokuyo_link"/>
+	  </joint>
 
 	  <!-- Hokuyo Laser -->
 	  <link name="hokuyo_link">
 		<collision>
-		  <origin xyz="0.1 0.1 0.1" rpy="0 0 0"/>
+		  <origin xyz="0 0 0" rpy="0 0 0"/>
 		  <geometry>
 		<box size="0.1 0.1 0.1"/>
 		  </geometry>
