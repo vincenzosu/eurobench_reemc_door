@@ -35,10 +35,10 @@
         <ray>
           <scan>
             <horizontal>
-              <samples>4</samples>
+              <samples>1</samples>
               <resolution>1</resolution>
-              <min_angle>-0.26889</min_angle>
-              <max_angle>0.268899</max_angle>
+              <min_angle>-0.25</min_angle>
+              <max_angle>0.25</max_angle>
             </horizontal>
           </scan>
           <range>
@@ -47,11 +47,11 @@
             <resolution>0.01</resolution>
           </range>
         </ray>
-        <!-- <plugin name="laser" filename="libRayPlugin.so" />  -->
-        <plugin filename="libRayPlugin.so" name="laser">
+        <plugin name="laser" filename="libRayPlugin.so" />  
+        <!--<plugin filename="libRayPlugin.so" name="laser">
          <topicName>sensor/hokuyo1</topicName>
          <frameName>door_frame</frameName>
-       </plugin>
+       </plugin> -->
         
         
         <always_on>1</always_on>
