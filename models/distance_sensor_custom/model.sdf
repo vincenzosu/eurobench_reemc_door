@@ -15,7 +15,7 @@
       </visual>
  
       
-       <gazebo reference="base_ir_front">        
+<!--       <gazebo reference="base_ir_front">        -->
    <sensor type="ray" name="TeraRanger">
       <pose>0.2 0.2 2.0 0 0 0</pose>
       <visualize>true</visualize>
