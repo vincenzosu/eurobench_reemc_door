@@ -17,7 +17,7 @@
       
        <gazebo reference="base_ir_front">        
    <sensor type="ray" name="TeraRanger">
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0.2 0.2 2 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
       <ray>
@@ -54,7 +54,7 @@
    </gazebo>
  <gazebo reference="base_ir_back">        
    <sensor type="ray" name="TeraRanger2">
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0.4 0.4 2 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
       <ray>
@@ -91,7 +91,7 @@
    </gazebo>
  <gazebo reference="base_ir_side1">        
    <sensor type="ray" name="TeraRanger3">
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0.6 0.6 2 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
       <ray>
@@ -128,7 +128,7 @@
    </gazebo>
  <gazebo reference="base_ir_side2">        
    <sensor type="ray" name="TeraRanger4">
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0.6 0.6 2 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
       <ray>
