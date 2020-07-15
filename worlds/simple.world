@@ -33,9 +33,13 @@
     </include>
 
     <!-- Hokuyo -->
-    <!--   DISTANCE   -->
-  
-      <!--   DISTANCE   -->
+<!--    <include>
+      <uri>model://hokuyo_custom</uri>
+    </include>-->
+    
+    <include>
+      <uri>model://distance_sensor_custom</uri>
+    </include>
     
   </world>
 </sdf>
