@@ -173,14 +173,14 @@
   <plugin name="simple_door_config" filename="libsimple_door_config.so"/>
   
   <!-- HOKUYO -->
-    <include>
+ <!--       <include>
       <uri>model://hokuyo_custom</uri>             
       <pose>0.2 0.6 2.2 0 1.57 1.57</pose>
     </include>
     <joint name="hokuyo_joint_0" type="fixed">
       <child>hokuyo::first::link</child>
       <parent>door</parent>
-    </joint>
+    </joint>-->
     
  <!--   <include>
       <uri>model://hokuyo_custom</uri>
@@ -191,14 +191,14 @@
       <parent>door</parent>
     </joint>  -->
     
- <!--<include>
+   <include>
       <uri>model://distance_sensor_custom</uri>             
       <pose>0.2 0.6 2.2 0 1.57 1.57</pose>
     </include>
     <joint name="ir_0" type="fixed">
       <child>distance_sensor::link</child>
       <parent>door</parent>
-    </joint> -->
+    </joint> 
     
   <!-- HOKUYO -->
   </model>
