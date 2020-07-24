@@ -16,7 +16,7 @@
  
       
        <gazebo reference="base_ir_front">        
-   <sensor type="ray" name="TeraRanger">
+ <!--  <sensor type="ray" name="TeraRanger">
       <pose>0.2 0.2 2.0 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
@@ -50,7 +50,7 @@
          <radiation>INFRARED</radiation>
          <fov>0.2967</fov>
       </plugin>
-   </sensor>  
+   </sensor>  -->
   </gazebo> <!--
  <gazebo reference="base_ir_back">        
    <sensor type="ray" name="TeraRanger2">
