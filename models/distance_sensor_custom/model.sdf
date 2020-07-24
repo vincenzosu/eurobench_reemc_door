@@ -39,7 +39,7 @@
       </sensor> -->
       
       <!--   DISTANCE   -->
-       <gazebo reference="base_ir_front">        
+     <!--  <gazebo reference="base_ir_front">        -->
    <sensor type="ray" name="TeraRanger">
       <pose>2.2 2.2 2 0 0</pose>
       <visualize>true</visualize>
@@ -75,7 +75,7 @@
          <fov>0.2967</fov>
       </plugin>
    </sensor>  
-   </gazebo><!--
+<!--   </gazebo>--><!--
  <gazebo reference="base_ir_back">        
    <sensor type="ray" name="TeraRanger2">
       <pose>0.3 0.3 2 0 0 0</pose>
