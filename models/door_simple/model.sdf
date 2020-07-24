@@ -182,14 +182,14 @@
       <parent>door</parent>
     </joint>
     
-    <include>
+   <!-- <include>
       <uri>model://hokuyo_custom</uri>
       <pose>-0.2 -0.6 2.2 0 1.57 1.57</pose>
     </include>
     <joint name="hokuyo_joint_1" type="fixed">
       <child>hokuyo::second::link</child>
       <parent>door</parent>
-    </joint> 
+    </joint> -->
     
  <!--<include>
       <uri>model://distance_sensor_custom</uri>             
