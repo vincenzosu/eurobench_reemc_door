@@ -257,7 +257,7 @@
      <joint name="ir_front_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin rpy="0 0 0" xyz="0.2 0.02 0.020" />
-    <parent door="chassis"/>
+    <parent door="door"/>
     <child link="base_ir_front"/>
 </joint>
 <!--
