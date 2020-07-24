@@ -13,7 +13,7 @@
           </mesh>
         </geometry>
       </visual>
-      <sensor name="laser" type="ray">
+<!--      <sensor name="laser" type="ray">
         <pose>0.01 0 0.03 0 -0 0</pose>
         <ray>
           <scan>
@@ -35,10 +35,10 @@
         <always_on>1</always_on>
         <update_rate>30</update_rate>
         <visualize>true</visualize>
-      </sensor> 
+      </sensor> -->
       
       <!--   DISTANCE   -->
-<!--       <gazebo reference="base_ir_front">        
+       <gazebo reference="base_ir_front">        
    <sensor type="ray" name="TeraRanger">
       <pose>0.2 0.2 2 0 0</pose>
       <visualize>true</visualize>
@@ -185,7 +185,7 @@
          <fov>0.2967</fov>
       </plugin>
    </sensor>  
-   </gazebo> -->
+   </gazebo> 
       
       <!--   DISTANCE   -->
       
