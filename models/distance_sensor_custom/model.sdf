@@ -75,22 +75,22 @@
          <fov>0.2967</fov>
       </plugin>
    </sensor>  
-<!--   </gazebo>--><!--
- <gazebo reference="base_ir_back">        
-   <sensor type="ray" name="TeraRanger2">
+<!--   </gazebo>
+<!-- <gazebo reference="base_ir_back">        -->
+   <sensor type="ray" name="base_ir_back">
       <pose>0.3 0.3 2 0 0 0</pose>
       <visualize>true</visualize>
-      <update_rate>50</update_rate>
+      <update_rate>30</update_rate>
       <ray>
          <scan>
             <horizontal>
-               <samples>10</samples>
+               <samples>1</samples>
                <resolution>1</resolution> 
                <min_angle>-0.14835</min_angle>
                <max_angle>0.14835</max_angle>
             </horizontal>
             <vertical>
-               <samples>10</samples>
+               <samples>1</samples>
                <resolution>1</resolution> 
                <min_angle>-0.14835</min_angle>
                <max_angle>0.14835</max_angle> 
@@ -112,9 +112,9 @@
          <fov>0.2967</fov>
       </plugin>
    </sensor>  
-   </gazebo>
- <gazebo reference="base_ir_side1">        
-   <sensor type="ray" name="TeraRanger3">
+
+
+   <sensor type="ray" name="base_ir_side1">
       <pose>0.5 0.5 2 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
@@ -149,9 +149,9 @@
          <fov>0.2967</fov>
       </plugin>
    </sensor>  
-   </gazebo>
- <gazebo reference="base_ir_side2">        
-   <sensor type="ray" name="TeraRanger4">
+
+
+   <sensor type="ray" name="base_ir_side2">
       <pose>0.4 0.4 2 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
@@ -186,7 +186,7 @@
          <fov>0.2967</fov>
       </plugin>
    </sensor>  
-   </gazebo>  -->
+
       
       <!--   DISTANCE   -->
       
