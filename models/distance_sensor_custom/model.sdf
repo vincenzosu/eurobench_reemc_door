@@ -55,8 +55,8 @@
             <vertical>
                <samples>1</samples>
                <resolution>1</resolution> 
-               <min_angle>-0.14835</min_angle>
-               <max_angle>0.14835</max_angle> 
+               <min_angle>-0.001</min_angle>
+               <max_angle>0.001</max_angle> 
             </vertical>
          </scan>
          <range>
@@ -68,11 +68,11 @@
       <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
          <gaussianNoise>0.005</gaussianNoise>
          <alwaysOn>true</alwaysOn>
-         <updateRate>50</updateRate>
+         <updateRate>30</updateRate>
          <topicName>sensor/ir_front</topicName>
          <frameName>base_ir_front</frameName>
          <radiation>INFRARED</radiation>
-         <fov>0.0</fov>
+         <fov>0.2967</fov>
       </plugin>
    </sensor>  
 
