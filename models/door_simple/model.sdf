@@ -204,10 +204,10 @@
       <uri>model://distance_sensor_custom</uri>             
       <pose>0.2 0.6 2.2 0 1.57 1.57</pose>
     </include>
-    <joint name="sensor_rack" type="fixed">
+  <!--  <joint name="sensor_rack" type="fixed">
       <child>distance_sensor::link</child>
       <parent>door</parent>
-    </joint> 
+    </joint> -->
    
     
 
