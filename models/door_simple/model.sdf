@@ -170,33 +170,7 @@
         </ode>
       </physics>
     </joint>
-<!--    
-     <joint name="ir_front_joint" type="fixed">
-    <axis xyz="0 1 0" />
-    <origin rpy="0 0 0" xyz="0.2 0.02 0.020" />
-    <parent door="door"/>
-    <child link="base_ir_front"/>
-</joint> -->
-<!--
- <joint name="ir_back_joint" type="fixed">
-    <axis xyz="0 1 0" />
-    <origin rpy="0 0 -3.14" xyz="-0.2 0.02 0.020" />
-    <parent link="door"/>
-    <child link="base_ir_back"/>
-</joint>
 
- <joint name="ir_side1" type="fixed">
-    <axis xyz="0 1 0" />
-    <origin rpy="0 0 1.57" xyz="0.0 0.1 0.020" />
-    <parent link="door"/>
-    <child link="base_ir_side1"/>
-</joint>
-<joint name="ir_side2" type="fixed">
-    <axis xyz="0 1 0" />
-    <origin rpy="0 0 -1.57" xyz="0.0 -0.1 0.020" />
-    <parent link="door"/>
-    <child link="base_ir_side2"/>
-</joint>-->
   <plugin name="simple_door_config" filename="libsimple_door_config.so"/>
   
     
@@ -206,11 +180,6 @@
     </include>
     
   
-  <!--  <joint name="sensor_rack" type="fixed">
-      <child>distance_sensor::link</child>
-      <parent>door</parent>
-    </joint> -->
-   
     
 
   </model>
