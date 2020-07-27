@@ -75,7 +75,7 @@
          <fov>0.2967</fov>
       </plugin>
    </sensor>  
-
+<!--   COMMENTO PERCHé Sposto dall'altra parte 
    <sensor type="ray" name="base_ir_back">
       <pose>0.3 0.3 2 0 0 0</pose>
       <visualize>true</visualize>
@@ -184,8 +184,7 @@
          <radiation>INFRARED</radiation>
          <fov>0.2967</fov>
       </plugin>
-   </sensor>  
-
+   </sensor>     -->
       
       <!--   DISTANCE   -->
       
