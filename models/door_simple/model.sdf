@@ -176,7 +176,7 @@
     <origin rpy="0 0 0" xyz="0.2 0.02 0.020" />
     <parent door="door"/>
     <child link="base_ir_front"/>
-</joint>
+    </joint>
 <!--
  <joint name="ir_back_joint" type="fixed">
     <axis xyz="0 1 0" />
