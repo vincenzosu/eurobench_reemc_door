@@ -6,13 +6,13 @@
       <inertial>
         <mass>0.1</mass>
       </inertial>
-   <!--   <visual name="visual">
+      <visual name="visual">
         <geometry>
           <mesh>
             <uri>model://hokuyo/meshes/hokuyo.dae</uri>
           </mesh>
         </geometry>
-      </visual>  -->
+      </visual>  
       
 
      <!--  <gazebo reference="base_ir_front">        -->
