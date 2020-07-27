@@ -318,7 +318,7 @@
    
       <sensor type="ray" name="base_ir_back_0">
    
-      <pose>0.0 0.6 0.0 0 0 0</pose>
+      <pose>0.0 0.5 0.0 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>30</update_rate>
       <ray>
@@ -354,7 +354,7 @@
    </sensor>  
 
    <sensor type="ray" name="base_ir_back_1">
-      <pose>0.0 0.7 0.0 0 0 0</pose>
+      <pose>0.0 0.6 0.0 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>30</update_rate>
       <ray>
@@ -391,7 +391,7 @@
 
 
    <sensor type="ray" name="base_ir_back_2">
-      <pose>0.0 0.8 0.0 0 0 0</pose>
+      <pose>0.0 0.7 0.0 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>30</update_rate>
       <ray>
@@ -428,7 +428,7 @@
 
 
    <sensor type="ray" name="base_ir_back_3">
-      <pose>0.0 0.9 0.0 0 0 0</pose>
+      <pose>0.0 0.8 0.0 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
       <ray>
@@ -467,7 +467,7 @@
          
             <sensor type="ray" name="base_ir_back_4">
    
-      <pose>0.0 0.6 0.3 0 0 0</pose>
+      <pose>0.0 0.5 0.3 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>30</update_rate>
       <ray>
@@ -503,7 +503,7 @@
    </sensor>  
 
    <sensor type="ray" name="base_ir_back_5">
-      <pose>0.0 0.7 0.3 0 0 0</pose>
+      <pose>0.0 0.6 0.3 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>30</update_rate>
       <ray>
@@ -540,7 +540,7 @@
 
 
    <sensor type="ray" name="base_ir_back_6">
-      <pose>0.0 0.8 0.3 0 0 0</pose>
+      <pose>0.0 0.7 0.3 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>30</update_rate>
       <ray>
@@ -577,7 +577,7 @@
 
 
    <sensor type="ray" name="base_ir_back_7">
-      <pose>0.0 0.9 0.3 0 0 0</pose>
+      <pose>0.0 0.8 0.3 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
       <ray>
