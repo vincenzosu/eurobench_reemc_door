@@ -72,7 +72,7 @@
          <topicName>sensor/ir_front</topicName>
          <frameName>base_ir_front</frameName>
          <radiation>INFRARED</radiation>
-         <fov>0.2967</fov>
+         <fov>0.0</fov>
       </plugin>
    </sensor>  
 
