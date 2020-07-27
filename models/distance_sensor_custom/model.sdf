@@ -16,14 +16,8 @@
       
 
      <!--  <gazebo reference="base_ir_front">        -->
-   <sensor type="ray" name="base_ir_front">
-   <visual name="visual">
-        <geometry>
-          <mesh>
-            <uri>model://hokuyo/meshes/hokuyo.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
+   <sensor type="ray" name="base_ir_front_0">
+   
       <pose>2.2 2.2 2 0 0</pose>
       <visualize>true</visualize>
       <update_rate>30</update_rate>
@@ -53,14 +47,14 @@
          <alwaysOn>true</alwaysOn>
          <updateRate>30</updateRate>
          <topicName>sensor/ir_front</topicName>
-         <frameName>base_ir_front</frameName>
+         <frameName>base_ir_front_0</frameName>
          <radiation>INFRARED</radiation>
          <fov>0.2967</fov>
       </plugin>
    </sensor>  
-<!--   COMMENTO PERCHé Sposto dall'altra parte 
-   <sensor type="ray" name="base_ir_back">
-      <pose>0.3 0.3 2 0 0 0</pose>
+
+   <sensor type="ray" name="base_ir_front_1">
+      <pose>2.3 2.2 2 0 0</pose>
       <visualize>true</visualize>
       <update_rate>30</update_rate>
       <ray>
@@ -88,16 +82,16 @@
          <gaussianNoise>0.005</gaussianNoise>
          <alwaysOn>true</alwaysOn>
          <updateRate>0</updateRate>
-         <topicName>sensor/ir_back</topicName>
-         <frameName>base_ir_back</frameName>
+         <topicName>sensor/base_ir_front_1</topicName>
+         <frameName>base_ir_front_1</frameName>
          <radiation>INFRARED</radiation>
          <fov>0.2967</fov>
       </plugin>
    </sensor>  
 
 
-   <sensor type="ray" name="base_ir_side1">
-      <pose>0.5 0.5 2 0 0 0</pose>
+   <sensor type="ray" name="base_ir_front_2">
+      <pose>2.4 2.2 2 0 0</pose>
       <visualize>true</visualize>
       <update_rate>30</update_rate>
       <ray>
@@ -125,16 +119,16 @@
          <gaussianNoise>0.005</gaussianNoise>
          <alwaysOn>true</alwaysOn>
          <updateRate>30</updateRate>
-         <topicName>sensor/ir_side1</topicName>
-         <frameName>base_ir_side1</frameName>
+         <topicName>sensor/base_ir_front_2</topicName>
+         <frameName>base_ir_front_2</frameName>
          <radiation>INFRARED</radiation>
          <fov>0.2967</fov>
       </plugin>
    </sensor>  
 
 
-   <sensor type="ray" name="base_ir_side2">
-      <pose>0.4 0.4 2 0 0 0</pose>
+   <sensor type="ray" name="base_ir_front_3">
+      <pose>2.5 2.2 2 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
       <ray>
@@ -162,12 +156,12 @@
          <gaussianNoise>0.005</gaussianNoise>
          <alwaysOn>true</alwaysOn>
          <updateRate>30</updateRate>
-         <topicName>sensor/ir_side2</topicName>
-         <frameName>base_ir_side2</frameName>
+         <topicName>sensor/base_ir_front_3</topicName>
+         <frameName>base_ir_front_3</frameName>
          <radiation>INFRARED</radiation>
          <fov>0.2967</fov>
       </plugin>
-   </sensor>     -->
+   </sensor>     
       
       <!--   DISTANCE   -->
       
