@@ -31,15 +31,10 @@
     <include>
       <uri>model://door_simple</uri>
     </include>
-
-    <!-- Hokuyo -->
-<!--    <include>
-      <uri>model://hokuyo_custom</uri>
-    </include>-->
     
-    <include>
+ <!--   <include>
       <uri>model://distance_sensor_custom</uri>
-    </include>
+    </include> -->
     
   </world>
 </sdf>
