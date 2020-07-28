@@ -46,7 +46,7 @@
          <gaussianNoise>0.005</gaussianNoise>
          <alwaysOn>true</alwaysOn>
          <updateRate>30</updateRate>
-         <topicName>sensor/ir_front_0</topicName>
+         <topicName>sensor/base_ir_front_0</topicName>
          <frameName>base_ir_front_0</frameName>
          <radiation>INFRARED</radiation>
          <fov>0.2967</fov>
@@ -195,7 +195,7 @@
          <gaussianNoise>0.005</gaussianNoise>
          <alwaysOn>true</alwaysOn>
          <updateRate>30</updateRate>
-         <topicName>sensor/ir_front_4</topicName>
+         <topicName>sensor/base_ir_front_4</topicName>
          <frameName>base_ir_front_4</frameName>
          <radiation>INFRARED</radiation>
          <fov>0.2967</fov>
@@ -344,7 +344,7 @@
          <gaussianNoise>0.005</gaussianNoise>
          <alwaysOn>true</alwaysOn>
          <updateRate>30</updateRate>
-         <topicName>sensor/ir_back_0</topicName>
+         <topicName>sensor/base_ir_back_0</topicName>
          <frameName>base_ir_back_0</frameName>
          <radiation>INFRARED</radiation>
          <fov>0.2967</fov>
