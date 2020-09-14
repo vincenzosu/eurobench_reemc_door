@@ -10,16 +10,16 @@
   <arg name="gui" default="true"/>
   <arg name="debug" default="false"/>
   <arg name="direction" default="push"/>
-  <arg name="robot_placement" default="cw"/>
+  <arg name="robot_placement_cw" default="true"/>
   <arg name="self_closing" default="n"/>
   
   
   <!-- set robot position -->
-  <group if="$(eval arg('robot_placement') ==cw)"> 
+  <group if="$(eval arg('robot_placement') ==true)"> 
     <arg name="gzpose" value="-x 1.0 -y 0.4 -z 0.86 -R 0.0 -P 0.0 -Y 3.1416"/>
   </group>
   
-  <group if="$(eval arg('robot_placement') ==ccw)"> 
+  <group if="$(eval arg('robot_placement') ==false)"> 
     <arg name="gzpose" value="-x -1.0 -y 0.4 -z 0.86 -R 0.0 -P 0.0 -Y 0"/>
   </group>
 
