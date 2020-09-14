@@ -19,7 +19,7 @@
     <arg name="gzpose" value="-x 1.0 -y 0.4 -z 0.86 -R 0.0 -P 0.0 -Y 3.1416"/>
   </group>
   
-  <group if="$(eval arg('robot_placement') ==cw)"> 
+  <group if="$(eval arg('robot_placement') ==ccw)"> 
     <arg name="gzpose" value="-x -1.0 -y 0.4 -z 0.86 -R 0.0 -P 0.0 -Y 0"/>
   </group>
 
