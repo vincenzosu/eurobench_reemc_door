@@ -15,13 +15,17 @@
   
   
   <!-- set robot position -->
-  <group if="$(eval arg('robot_placement') ==true)"> 
+  <!--   <group if="$(eval arg('robot_placement') ==true)"> 
     <arg name="gzpose" value="-x 1.0 -y 0.4 -z 0.86 -R 0.0 -P 0.0 -Y 3.1416"/>
   </group>
   
   <group if="$(eval arg('robot_placement') ==false)"> 
     <arg name="gzpose" value="-x -1.0 -y 0.4 -z 0.86 -R 0.0 -P 0.0 -Y 0"/>
   </group>
+   -->
+  
+  <arg name="gzpose" default="-x 1.0 -y 0.4 -z 0.86 -R 0.0 -P 0.0 -Y 3.1416" unless="$(arg robot_placement)"/>
+  <arg name="gzpose" value="-x -1.0 -y 0.4 -z 0.86 -R 0.0 -P 0.0 -Y 0" if="$(arg robot_placement)"/>
 
 
   <!--   <group if="$(arg foo)">-->
