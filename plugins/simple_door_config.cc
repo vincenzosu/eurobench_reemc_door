@@ -15,7 +15,7 @@ namespace gazebo
 
       this->model = _parent;
       this->joint=  this->model->GetJoint("door_simple::joint_frame_door");
-cout
+
       if (const char* direction = std::getenv("GAZEBO_DOOR_MODEL_DIRECTION")){
         
         if(std::strcmp(direction,"push") ==0){
