@@ -6,18 +6,15 @@
 #include <stdlib.h>
 
 
-namespace gazebo
-{
-  class SimpleDoorConfig : public ModelPlugin
-  {
+namespace gazebo {
   
-  public: SimpleDoorConfig() : ModelPlugin()
-            {
-              printf("+++++++++++++++++++++++ TESTTEST!\n");
-            }
+  class SimpleDoorConfig : public ModelPlugin {
   
-    public: void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf)
-    {
+    public: SimpleDoorConfig() : ModelPlugin() {
+    
+    }
+  
+    public: void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf) {
       // Store the pointer to the model, link and joint
 
       this->model = _parent;
@@ -65,19 +62,20 @@ namespace gazebo
     }
 
     // Called by the world update start event
-    public: void OnUpdate()
-    {
+    public: void OnUpdate() {
       
-      std::cerr << "*********************** I am changing he LUT values" << std::endl;
       // velocity = (position - last_position) / (((float)delta_t) / 1000.0f);
       
       double angle = this->joint->GetAngle(0).Degree();
       float force = getForceFromLutValues(angle);
       this->joint->SetForce(0, force);
       
+      
+      std::cerr << "********* I am changing he LUT values"<<
+      ", with angle: "<<angle<<" and force "<< force << std::endl;
     }
     
-    private: float getForceFromLutValues(double angle){
+    private: float getForceFromLutValues(double angle) {
     // interpolate the LUT
 
         float position = static_cast<float>(angle); 
