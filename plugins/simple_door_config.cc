@@ -5,6 +5,7 @@
 #include <ignition/math/Vector3.hh>
 #include <stdlib.h>
 
+
 namespace gazebo
 {
   class SimpleDoorConfig : public ModelPlugin
@@ -61,6 +62,43 @@ namespace gazebo
     public: void OnUpdate()
     {
       
+      std::cerr << "*********************** I am changing he LUT values" << std::endl;
+      // velocity = (position - last_position) / (((float)delta_t) / 1000.0f);
+      interpolateLutValues()
+      
+      
+    }
+    
+    private: float getForceFromLutValues(){
+    // interpolate the LUT
+
+        float p = (position + 1.0f) * 90.0f;
+
+        float p_ = floorf(p);
+        float r_ = p - p_;
+        int32_t idx = (size_t)(p_);
+
+        if(idx < 0) {
+            idx = 0;
+            r_ = 0.0f;
+        }
+
+        if(idx > 179) {
+            idx = 179;
+            r_ = 1.0f;
+        }
+
+        float tmp_braking_force = 0.0f;
+
+        if(state == MADROB_DOOR_STATE_LUT_CW) {
+            tmp_braking_force = lut_cw_angle[idx] * (1.0f - r_) + lut_cw_angle[idx+1] * r_;
+        } else if (state == MADROB_DOOR_STATE_LUT_CCW){
+            tmp_braking_force = lut_ccw_angle[idx] * (1.0f - r_) + lut_ccw_angle[idx+1] * r_;
+        } else {
+            // This should not happen
+            tmp_braking_force = 0.0f;
+        }
+        return tmp_braking_force;
     }
 
     // Pointer to the model
