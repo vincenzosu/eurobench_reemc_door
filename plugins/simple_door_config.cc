@@ -71,7 +71,7 @@ namespace gazebo
       std::cerr << "*********************** I am changing he LUT values" << std::endl;
       // velocity = (position - last_position) / (((float)delta_t) / 1000.0f);
       
-      double angle = this->joint[0]->Position(0);
+      double angle = this->joint->Position(0);
       float force = getForceFromLutValues(angle);
       this->joint->SetForce(0, force);
       
