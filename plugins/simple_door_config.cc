@@ -72,6 +72,8 @@ namespace gazebo
     private: float getForceFromLutValues(){
     // interpolate the LUT
 
+        float position = 10.0; // TODO CHANGE WITH THE ANGLE
+
         float p = (position + 1.0f) * 90.0f;
 
         float p_ = floorf(p);
