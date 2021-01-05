@@ -11,7 +11,7 @@ namespace gazebo
   class SimpleDoorConfig : public ModelPlugin
   {
   
-  public: SimpleDoorConfig() : WorldPlugin()
+  public: SimpleDoorConfig() : ModelPlugin()
             {
               printf("+++++++++++++++++++++++ TESTTEST!\n");
             }
