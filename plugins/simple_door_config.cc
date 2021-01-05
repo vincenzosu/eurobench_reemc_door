@@ -10,6 +10,12 @@ namespace gazebo
 {
   class SimpleDoorConfig : public ModelPlugin
   {
+  
+  public: SimpleDoorConfig() : WorldPlugin()
+            {
+              printf("+++++++++++++++++++++++ TESTTEST!\n");
+            }
+  
     public: void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf)
     {
       // Store the pointer to the model, link and joint
