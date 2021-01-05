@@ -75,10 +75,10 @@ namespace gazebo
       
     }
     
-    private: float getForceFromLutValues(float angle){
+    private: float getForceFromLutValues(double angle){
     // interpolate the LUT
 
-        float position = angle; 
+        float position = static_cast<float> angle; 
 
         float p = (position + 1.0f) * 90.0f;
 
