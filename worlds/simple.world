@@ -30,7 +30,7 @@
     <!-- A door -->
     <include>
       <uri>model://door_simple</uri>
-        <plugin name="simple_door_config" filename="libsimple_door_config.so"/>
+        <plugin name="simple_door_config" filename="./libsimple_door_config.so"/>
     </include>
     
  <!--   <include>
