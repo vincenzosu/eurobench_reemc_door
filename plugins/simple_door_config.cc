@@ -98,14 +98,14 @@ namespace gazebo
         int state = 0;
         // ************* END TOREMOVE ******************
                 
-        if(state == MADROB_DOOR_STATE_LUT_CW) {
+        /*if(state == MADROB_DOOR_STATE_LUT_CW) {
             tmp_braking_force = lut_cw_angle[idx] * (1.0f - r_) + lut_cw_angle[idx+1] * r_;
         } else if (state == MADROB_DOOR_STATE_LUT_CCW){
             tmp_braking_force = lut_ccw_angle[idx] * (1.0f - r_) + lut_ccw_angle[idx+1] * r_;
         } else {
             // This should not happen
             tmp_braking_force = 0.0f;
-        }
+        }*/
         return tmp_braking_force;
     }
 
