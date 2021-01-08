@@ -4,6 +4,7 @@
 #include <gazebo/common/common.hh>
 #include <ignition/math/Vector3.hh>
 #include <stdlib.h>
+#include "LUT.h"
 
 
 namespace gazebo {
@@ -72,7 +73,7 @@ namespace gazebo {
       
       
       std::cerr << "********* I am changing he LUT values"<<
-      ", with angle: "<<angle<<" and force "<< force << std::endl;
+      ", with angle: "<<angle<<" and force "<< force <<", door dir: "<< std::getenv("GAZEBO_DOOR_MODEL_DIRECTION") << std::endl;
     }
     
     private: float getForceFromLutValues(double angle) {
