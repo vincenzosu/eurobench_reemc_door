@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
 find_package(roscpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(eurobench_bms_msgs_and_srvs REQUIRED)
 include_directories(${roscpp_INCLUDE_DIRS})
 include_directories(${std_msgs_INCLUDE_DIRS})
-#include_directories(${madrob_INCLUDE_DIRS})
 
 
 find_package(gazebo REQUIRED)
