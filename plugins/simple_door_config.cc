@@ -6,10 +6,12 @@
 #include <stdlib.h>
 #include "LUT.h"
 
+
 #include <thread>
 #include "ros/ros.h"
 #include "ros/callback_queue.h"
 #include "ros/subscribe_options.h"
+#include "ros/service_client.h"
 #include "madrob/gui/benchmark_params.h"
 //#include "eurobench_bms_msgs_and_srvs/MadrobBenchmarkParams.h"
 
