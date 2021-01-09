@@ -16,7 +16,7 @@
 //#include <madrob/gui/benchmark_params.h>
 
 //#include "eurobench_bms_msgs_and_srvs/MadrobBenchmarkParams.h"
-#include <eurobench_bms_msgs_and_srvs/*>
+#include <eurobench_bms_msgs_and_srvs/MadrobBenchmarkParams.h>
 
 
 /// \brief A node use for ROS transport
