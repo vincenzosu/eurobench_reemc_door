@@ -13,9 +13,10 @@
 #include "ros/subscribe_options.h"
 #include "ros/service_client.h"
 //#include "madrob/gui/benchmark_params.h"
-#include <madrob/gui/benchmark_params.h>
+//#include <madrob/gui/benchmark_params.h>
 
 //#include "eurobench_bms_msgs_and_srvs/MadrobBenchmarkParams.h"
+#include <eurobench_bms_msgs_and_srvs/*>
 
 
 /// \brief A node use for ROS transport
