@@ -12,26 +12,26 @@
 #include "ros/callback_queue.h"
 #include "ros/subscribe_options.h"
 #include "ros/service_client.h"
-//#include "madrob/gui/benchmark_params.h"
-//#include <madrob/gui/benchmark_params.h>
 
-//#include "eurobench_bms_msgs_and_srvs/MadrobBenchmarkParams.h"
 #include "eurobench_bms_msgs_and_srvs/MadrobBenchmarkParams.h"
 
-
-/// \brief A node use for ROS transport
-private: std::unique_ptr<ros::NodeHandle> rosNode;
-/// \brief A ROS subscriber
-private: ros::Subscriber rosSub;
-/// \brief A ROS callbackqueue that helps process messages
-private: ros::CallbackQueue rosQueue;
-/// \brief A thread the keeps running the rosQueue
-private: std::thread rosQueueThread;
 
 
 namespace gazebo {
   
   class SimpleDoorConfig : public ModelPlugin {
+  
+    
+    /// \brief A node use for ROS transport
+    private: std::unique_ptr<ros::NodeHandle> rosNode;
+    /// \brief A ROS subscriber
+    private: ros::Subscriber rosSub;
+    /// \brief A ROS callbackqueue that helps process messages
+    private: ros::CallbackQueue rosQueue;
+    /// \brief A thread the keeps running the rosQueue
+    private: std::thread rosQueueThread;
+
+  
   
     public: SimpleDoorConfig() : ModelPlugin() {
     
