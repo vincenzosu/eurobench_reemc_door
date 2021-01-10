@@ -118,7 +118,7 @@ namespace gazebo {
           // ****************** dal tutorial
         //ros::NodeHandle n;
 //        ros::ServiceClient client = n.serviceClient<eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams>("madrob_benchmark_params");
-          ros::ServiceClient client = rosNode->serviceClient<eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams>("madrob_benchmark_params");
+          ros::ServiceClient client = rosNode.serviceClient<eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams>("madrob_benchmark_params");
         
         eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams srv;
       //  srv.request.a = atoll(argv[1]);
