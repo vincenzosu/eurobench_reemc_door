@@ -124,7 +124,7 @@ namespace gazebo {
         if (client.call(srv))
         {
             //ROS_INFO("Sum: %ld", (long int)srv.response.benchmark_type);
-            std::cerr<<"****RENSPOSE: " <<  srv.response.benchmark_type << ", "<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side << std::cerr; 
+            std::cerr<<"****RENSPOSE: " <<  srv.response.benchmark_type << ", "<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side << std::endl; 
         }
             else
         {
