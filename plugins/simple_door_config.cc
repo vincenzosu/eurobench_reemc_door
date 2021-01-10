@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include "LUT.h"
 
-
 #include <thread>
 #include "ros/ros.h"
 #include "ros/callback_queue.h"
@@ -16,8 +15,8 @@
 #include "eurobench_bms_msgs_and_srvs/MadrobBenchmarkParams.h"
 
 
-
 namespace gazebo {
+
   
   class SimpleDoorConfig : public ModelPlugin {
   
@@ -31,7 +30,7 @@ namespace gazebo {
     /// \brief A thread the keeps running the rosQueue
     private: std::thread rosQueueThread;
 
-  
+    private: int currentLUT[];  
   
     public: SimpleDoorConfig() : ModelPlugin() {
     
@@ -91,8 +90,9 @@ namespace gazebo {
       
       // velocity = (position - last_position) / (((float)delta_t) / 1000.0f);
       
-      getBenchParams();	
-
+      eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response response = getBenchParams();	
+      //srv.response.benchmark_type << ", "<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side
+      setLUTVector(srv.response.benchmark_type, srv.response.door_opening_side);
       
       double angle = this->joint->GetAngle(0).Degree();
       float force = getForceFromLutValues(angle);
@@ -103,34 +103,19 @@ namespace gazebo {
       ", with angle: "<<angle<<" and force "<< force <<", door dir: "<< std::getenv("GAZEBO_DOOR_MODEL_DIRECTION") << std::endl;
     }
     
-    private: void getBenchParams() {
-    
-        // *********************** dal modulo python
-  /*      get_benchmark_params = rospy.ServiceProxy('madrob/gui/benchmark_params', MadrobBenchmarkParams)
-        except rospy.ServiceException, e:
-            print "ServiceProxy failed: %s"%e
-            exit(0)
-        response = get_benchmark_params()
-        ebws.current_benchmark_name = response.benchmark_type
-        ebws.current_door_opening_side = response.door_opening_side
-        ebws.current_robot_approach_side = response.robot_approach_side */
-          //fine del modulo python
-          // ****************** dal tutorial
+    private: eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response getBenchParams() {
+  
         ros::NodeHandle n;
-        ros::ServiceClient client = n.serviceClient<eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams>("madrob/gui/benchmark_params");
-          //ros::ServiceClient client = rosNode->serviceClient<eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams>("madrob_benchmark_params");
-        
+        ros::ServiceClient client = n.serviceClient<eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams>
+                                                    ("madrob/gui/benchmark_params");
         eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams srv;
-      //  srv.request.a = atoll(argv[1]);
-       // srv.request.b = atoll(argv[2]);
         if (client.call(srv)) {
-            //ROS_INFO("Sum: %ld", (long int)srv.response.benchmark_type);
-            std::cerr<<"****RESPONSE: " <<  srv.response.benchmark_type << ", "<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side << std::endl; 
+            //std::cerr<<"****RESPONSE: " <<  srv.response.benchmark_type << ", "<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side << std::endl; 
         } else {
             ROS_ERROR("Failed to call service ");
             return;
         }
-          // ****************** fine dal tutorial
+        return srv.response;
     }
     
     private: float getForceFromLutValues(double angle) {
@@ -172,6 +157,40 @@ namespace gazebo {
         }*/
         return tmp_braking_force;
     }
+    
+    
+    private: setLUTVector(String benchmark_type, String door_opening_side){
+        if (benchmark_type.compare("No Force") == 0){
+            currentLUT = no_force;    
+        } else if (benchmark_type.compare("Constant Force") == 0){
+            currentLUT = constant_force;            
+        } else if (benchmark_type.compare("Sudden Force") == 0){
+             if (door_opening_side.compare("CCW") == 0){
+                currentLUT = sudden_force_ccw;
+                std::cerr<<"*************************SUDDEN FORCE CCW " << std::endl;
+             } else {
+                currentLUT = sudden_force_cw;
+                std::cerr<<"*************************SUDDEN FORCE CW " << std::endl;
+             }
+        } else if (benchmark_type.compare("Sudden Ramp") == 0){
+              if (door_opening_side.compare("CCW") == 0){
+                currentLUT = sudden_ramp_ccw;
+                std::cerr<<"*************************SUDDEN RAMP CCW " << std::endl;
+             } else {
+                currentLUT = sudden_ramp_cw;
+                std::cerr<<"*************************SUDDEN RAMP CW " << std::endl;
+             }
+        } else if (benchmark_type.compare("Wind Ramp") == 0){
+              if (door_opening_side.compare("CCW") == 0){
+                currentLUT = wind_ramp_ccw;
+                std::cerr<<"*************************WIND RAMP CCW " << std::endl;
+             } else {
+                std::cerr<<"*************************WIND RAMP CW " << std::endl;
+                currentLUT = wind_ramp_cw;
+             }
+        }
+    }
+    
 
     // Pointer to the model
     private: physics::ModelPtr model;
