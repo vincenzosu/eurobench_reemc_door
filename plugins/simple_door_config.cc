@@ -17,7 +17,6 @@
 
 namespace gazebo {
 
-  
   class SimpleDoorConfig : public ModelPlugin {
     
     // node uses for ROS transport
@@ -30,7 +29,6 @@ namespace gazebo {
     private: std::thread rosQueueThread;
     // LUT vector
     private: int currentLUT[181];  
-    
     // Pointer to the model
     private: physics::ModelPtr model;
     
@@ -41,7 +39,6 @@ namespace gazebo {
     private: event::ConnectionPtr updateConnection;
   
     public: SimpleDoorConfig() : ModelPlugin() {
-    
     }
   
     public: void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf) {
@@ -126,11 +123,9 @@ namespace gazebo {
         return srv.response;
     }
     
+        // provide force interpolating the LUT values
     private: float getForceFromLutValues(double angle, std::string door_opening_side) {
-    // interpolate the LUT
-
         float p = static_cast<float>(angle); 
-
         //float p = (position + 1.0f) * 90.0f;
 
         float p_ = floorf(p);
@@ -141,16 +136,15 @@ namespace gazebo {
             idx = 0;
             r_ = 0.0f;
         }
-
         if(idx > 179) {
             idx = 179;
             r_ = 1.0f;
         }
 
         float tmp_braking_force = 0.0f;
-        std::cerr<<"**** IDX: " <<    idx << std::endl;
+        
         if(door_opening_side.compare("CW")) {
-            tmp_braking_force = currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_;
+            tmp_braking_force = -(currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_);
         } else if (door_opening_side.compare("CCW")){
             tmp_braking_force = currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_;
         } else {
