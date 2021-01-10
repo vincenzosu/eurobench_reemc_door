@@ -148,7 +148,7 @@ namespace gazebo {
         }
 
         float tmp_braking_force = 0.0f;
-                
+        std::cerr<<"**** IDX: " <<    idx << std::endl;
         if(door_opening_side.compare("CW")) {
             tmp_braking_force = currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_;
         } else if (door_opening_side.compare("CCW")){
