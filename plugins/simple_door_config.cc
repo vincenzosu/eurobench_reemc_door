@@ -113,7 +113,7 @@ namespace gazebo {
             //std::cerr<<"****RESPONSE: " <<  srv.response.benchmark_type << ", "<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side << std::endl; 
         } else {
             ROS_ERROR("Failed to call service ");
-            return;
+            return new eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response();
         }
         return srv.response;
     }
