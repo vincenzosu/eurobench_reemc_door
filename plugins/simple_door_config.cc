@@ -94,23 +94,22 @@ namespace gazebo {
     public: void OnUpdate() {
             
         eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response response = getBenchParams();	
-        //srv.response.benchmark_type << ", 
-        //"<< srv.response.door_opening_side << ", "
-        //<< srv.response.robot_approach_side
+        //srv.response.benchmark_type 
+        //srv.response.door_opening_side
+        //srv.response.robot_approach_side
 
         if (last_benchmark_type.compare(response.benchmark_type)!=0 || 
             last_opening_side.compare(response.door_opening_side)!=0 ){
             setLUTVector(response.benchmark_type, response.door_opening_side);
         }
 
-
         double angle = this->joint->GetAngle(0).Degree();
         float force = getForceFromLutValues(angle, response.door_opening_side);
         this->joint->SetForce(0, force);
 
-        std::cerr << "********* I am changing he LUT values"<<
-        ", with angle: "<<angle<<" and force "<< force <<", door dir: "
-        << std::getenv("GAZEBO_DOOR_MODEL_DIRECTION") << std::endl;
+        //std::cerr << "********* I am changing he LUT values"<<
+        //", with angle: "<<angle<<" and force "<< force <<", door dir: "
+        //<< std::getenv("GAZEBO_DOOR_MODEL_DIRECTION") << std::endl;
     }
     
     private: eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response getBenchParams() {
@@ -123,8 +122,7 @@ namespace gazebo {
             //std::cerr<<"****RESPONSE: " <<  srv.response.benchmark_type << ", "
             //<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side << std::endl; 
         } else {
-            ROS_ERROR("Failed to call service madrob/gui/benchmark_params");
-            //return new eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response();
+            ROS_ERROR("[SIMPLE DOOR PLUGIN] Failed to call service madrob/gui/benchmark_params");
         }
         return srv.response;
     }
@@ -165,7 +163,6 @@ namespace gazebo {
     
     
     private: void setLUTVector(std::string benchmark_type, std::string door_opening_side){
-        
     
         if (benchmark_type.compare("No Force") == 0){
             memcpy(currentLUT, no_force, sizeof(currentLUT));
@@ -174,25 +171,19 @@ namespace gazebo {
         } else if (benchmark_type.compare("Sudden Force") == 0){
              if (door_opening_side.compare("CCW") == 0){
                 memcpy(currentLUT, sudden_force_ccw, sizeof(currentLUT));
-                std::cerr<<"*************************SUDDEN FORCE CCW " << std::endl;
              } else {
                 memcpy(currentLUT, sudden_force_cw, sizeof(currentLUT));
-                std::cerr<<"*************************SUDDEN FORCE CW " << std::endl;
              }
         } else if (benchmark_type.compare("Sudden Ramp") == 0){
               if (door_opening_side.compare("CCW") == 0){
                 memcpy(currentLUT, sudden_ramp_ccw, sizeof(currentLUT));
-                std::cerr<<"*************************SUDDEN RAMP CCW " << std::endl;
              } else {
                 memcpy(currentLUT, sudden_ramp_cw, sizeof(currentLUT));
-                std::cerr<<"*************************SUDDEN RAMP CW " << std::endl;
              }
         } else if (benchmark_type.compare("Wind Ramp") == 0){
               if (door_opening_side.compare("CCW") == 0){
-                std::cerr<<"*************************WIND RAMP CCW " << std::endl;
                 memcpy(currentLUT, wind_ramp_ccw, sizeof(currentLUT));
              } else {
-                std::cerr<<"*************************WIND RAMP CW " << std::endl;
                 memcpy(currentLUT, wind_ramp_cw, sizeof(currentLUT));
              }
         }
