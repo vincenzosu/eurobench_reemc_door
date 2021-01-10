@@ -92,7 +92,7 @@ namespace gazebo {
       
       eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response response = getBenchParams();	
       //srv.response.benchmark_type << ", "<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side
-      setLUTVector(srv.response.benchmark_type, srv.response.door_opening_side);
+      setLUTVector(response.benchmark_type, response.door_opening_side);
       
       double angle = this->joint->GetAngle(0).Degree();
       float force = getForceFromLutValues(angle);
