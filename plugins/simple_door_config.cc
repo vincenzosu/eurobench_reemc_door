@@ -99,7 +99,7 @@ namespace gazebo {
         //<< srv.response.robot_approach_side
 
         if (!last_benchmark_type.compare(response.benchmark_type) || 
-            !last_opening_side.compare(response.door_opening_side) || ){
+            !last_opening_side.compare(response.door_opening_side) ){
             setLUTVector(response.benchmark_type, response.door_opening_side);
         }
         setLUTVector(response.benchmark_type, response.door_opening_side);
