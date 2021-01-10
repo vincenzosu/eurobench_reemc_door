@@ -131,6 +131,7 @@ namespace gazebo {
         float p_ = floorf(p);
         float r_ = p - p_;
         int32_t idx = (size_t)(p_);
+        idx = std::abs(idx);
 
         if(idx < 0) {
             idx = 0;
@@ -145,9 +146,9 @@ namespace gazebo {
         int sign = (angle > 0) ? 1 : ((angle < 0) ? -1 : 0);
 
         if(door_opening_side.compare("CW")) {
-            tmp_braking_force = sign*(currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_);
+            tmp_braking_force = -sign*(currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_);
         } else if (door_opening_side.compare("CCW")){
-            tmp_braking_force = sign*currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_;
+            tmp_braking_force = -sign*currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_;
         } else {
             // This should not happen
             tmp_braking_force = 0.0f;
