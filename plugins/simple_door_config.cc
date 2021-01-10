@@ -37,6 +37,9 @@ namespace gazebo {
     private: physics::JointPtr joint;
     // Pointer to the update event connection
     private: event::ConnectionPtr updateConnection;
+    
+    private: std::string last_opening_side = "";
+    private: std::string last_benchmark_type = "";
   
     public: SimpleDoorConfig() : ModelPlugin() {
     }
@@ -48,20 +51,17 @@ namespace gazebo {
       this->joint=  this->model->GetJoint("door_simple::joint_frame_door");
 
       if (const char* direction = std::getenv("GAZEBO_DOOR_MODEL_DIRECTION")){
-        
+      
         if(std::strcmp(direction,"push") ==0){
           joint->SetUpperLimit(0,1.57);
           joint->SetLowerLimit(0,-0.03);
-        }
-        else if(std::strcmp(direction,"pull") ==0){
+        } else if(std::strcmp(direction,"pull") ==0){
           joint->SetUpperLimit(0,0.03);
           joint->SetLowerLimit(0,-1.57);
-        }
-        else if(std::strcmp(direction,"pushpull") ==0){
+        } else if(std::strcmp(direction,"pushpull") ==0){
           joint->SetUpperLimit(0,1.57);
           joint->SetLowerLimit(0,-1.57); 
-        }
-        else {
+        } else {
           std::cerr << "Bad door direction: "<< direction << " , [push][pull][pushpull]" << std::endl;
         }
 
@@ -73,8 +73,7 @@ namespace gazebo {
           //index,spring_stiffnes,damping,spring_zero_load_position
           joint->SetStiffnessDamping(0,1.5,0.1,0.0);  
        
-        }
-        else if(std::strcmp(selfClose,"n") ==0){
+        } else if(std::strcmp(selfClose,"n") ==0){
 
         }
 
@@ -94,17 +93,24 @@ namespace gazebo {
     // Called by the world update start event
     public: void OnUpdate() {
             
-      eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response response = getBenchParams();	
-      //srv.response.benchmark_type << ", "<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side
-      setLUTVector(response.benchmark_type, response.door_opening_side);
-      
-      double angle = this->joint->GetAngle(0).Degree();
-      float force = getForceFromLutValues(angle, response.door_opening_side);
-      this->joint->SetForce(0, force);
-      
-      std::cerr << "********* I am changing he LUT values"<<
-      ", with angle: "<<angle<<" and force "<< force <<", door dir: "
-      << std::getenv("GAZEBO_DOOR_MODEL_DIRECTION") << std::endl;
+        eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response response = getBenchParams();	
+        //srv.response.benchmark_type << ", 
+        //"<< srv.response.door_opening_side << ", "
+        //<< srv.response.robot_approach_side
+
+        if (!last_benchmark_type.compare(response.benchmark_type) || 
+            !last_opening_side.compare(response.door_opening_side) || ){
+            setLUTVector(response.benchmark_type, response.door_opening_side);
+        }
+        setLUTVector(response.benchmark_type, response.door_opening_side);
+
+        double angle = this->joint->GetAngle(0).Degree();
+        float force = getForceFromLutValues(angle, response.door_opening_side);
+        this->joint->SetForce(0, force);
+
+        std::cerr << "********* I am changing he LUT values"<<
+        ", with angle: "<<angle<<" and force "<< force <<", door dir: "
+        << std::getenv("GAZEBO_DOOR_MODEL_DIRECTION") << std::endl;
     }
     
     private: eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response getBenchParams() {
@@ -125,6 +131,7 @@ namespace gazebo {
     
         // provide force interpolating the LUT values
     private: float getForceFromLutValues(double angle, std::string door_opening_side) {
+
         float p = static_cast<float>(angle); 
         //float p = (position + 1.0f) * 90.0f;
 
@@ -158,6 +165,8 @@ namespace gazebo {
     
     
     private: void setLUTVector(std::string benchmark_type, std::string door_opening_side){
+        
+    
         if (benchmark_type.compare("No Force") == 0){
             memcpy(currentLUT, no_force, sizeof(currentLUT));
         } else if (benchmark_type.compare("Constant Force") == 0){
