@@ -103,11 +103,11 @@ namespace gazebo {
       
       double angle = this->joint->GetAngle(0).Degree();
       float force = getForceFromLutValues(angle, response.door_opening_side);
-      this->joint->SetForce(0, 1000.f);
+      this->joint->SetForce(0, force);
       
-      //std::cerr << "********* I am changing he LUT values"<<
-      //", with angle: "<<angle<<" and force "<< force <<", door dir: "
-      //<< std::getenv("GAZEBO_DOOR_MODEL_DIRECTION") << std::endl;
+      std::cerr << "********* I am changing he LUT values"<<
+      ", with angle: "<<angle<<" and force "<< force <<", door dir: "
+      << std::getenv("GAZEBO_DOOR_MODEL_DIRECTION") << std::endl;
     }
     
     private: eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams::Response getBenchParams() {
