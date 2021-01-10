@@ -98,11 +98,11 @@ namespace gazebo {
         //"<< srv.response.door_opening_side << ", "
         //<< srv.response.robot_approach_side
 
-        if (!last_benchmark_type.compare(response.benchmark_type) || 
-            !last_opening_side.compare(response.door_opening_side) ){
+        if (last_benchmark_type.compare(response.benchmark_type)!=0 || 
+            last_opening_side.compare(response.door_opening_side)!=0 ){
             setLUTVector(response.benchmark_type, response.door_opening_side);
         }
-        setLUTVector(response.benchmark_type, response.door_opening_side);
+
 
         double angle = this->joint->GetAngle(0).Degree();
         float force = getForceFromLutValues(angle, response.door_opening_side);
