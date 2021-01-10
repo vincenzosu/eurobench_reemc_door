@@ -91,7 +91,7 @@ namespace gazebo {
       
       // velocity = (position - last_position) / (((float)delta_t) / 1000.0f);
       
-      getBenchParams();
+      getBenchParams();	
 
       
       double angle = this->joint->GetAngle(0).Degree();
@@ -124,7 +124,7 @@ namespace gazebo {
         if (client.call(srv))
         {
             //ROS_INFO("Sum: %ld", (long int)srv.response.benchmark_type);
-            std::cerr<<"****RENSPOSE: " <<  response.benchmark_type << ", "<< response.door_opening_side << ", "<< response.robot_approach_side << std::cerr; 
+            std::cerr<<"****RENSPOSE: " <<  srv.response.benchmark_type << ", "<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side << std::cerr; 
         }
             else
         {
