@@ -142,11 +142,12 @@ namespace gazebo {
         }
 
         float tmp_braking_force = 0.0f;
-        
+        int sign = (angle > 0) ? 1 : ((angle < 0) ? -1 : 0);
+
         if(door_opening_side.compare("CW")) {
-            tmp_braking_force = -(currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_);
+            tmp_braking_force = sign*(currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_);
         } else if (door_opening_side.compare("CCW")){
-            tmp_braking_force = currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_;
+            tmp_braking_force = sign*currentLUT[idx] * (1.0f - r_) + currentLUT[idx+1] * r_;
         } else {
             // This should not happen
             tmp_braking_force = 0.0f;
