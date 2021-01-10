@@ -161,32 +161,40 @@ namespace gazebo {
     
     private: void setLUTVector(std::string benchmark_type, std::string door_opening_side){
         if (benchmark_type.compare("No Force") == 0){
-            currentLUT = no_force;    
+            memcpy(currentLUT, no_force, sizeof(currentLUT));
+    //        currentLUT = no_force;    
         } else if (benchmark_type.compare("Constant Force") == 0){
-            currentLUT = constant_force;            
+            memcpy(currentLUT, constant_force, sizeof(currentLUT));
+//            currentLUT = constant_force;            
         } else if (benchmark_type.compare("Sudden Force") == 0){
              if (door_opening_side.compare("CCW") == 0){
-                currentLUT = sudden_force_ccw;
+  //              currentLUT = sudden_force_ccw;
+                memcpy(currentLUT, sudden_force_ccw, sizeof(currentLUT));
                 std::cerr<<"*************************SUDDEN FORCE CCW " << std::endl;
              } else {
-                currentLUT = sudden_force_cw;
+                //currentLUT = sudden_force_cw;
+                memcpy(currentLUT, sudden_force_cw, sizeof(currentLUT));
                 std::cerr<<"*************************SUDDEN FORCE CW " << std::endl;
              }
         } else if (benchmark_type.compare("Sudden Ramp") == 0){
               if (door_opening_side.compare("CCW") == 0){
-                currentLUT = sudden_ramp_ccw;
+                //currentLUT = sudden_ramp_ccw;
+                memcpy(currentLUT, sudden_ramp_ccw, sizeof(currentLUT));
                 std::cerr<<"*************************SUDDEN RAMP CCW " << std::endl;
              } else {
-                currentLUT = sudden_ramp_cw;
+                //currentLUT = sudden_ramp_cw;
+                memcpy(currentLUT, sudden_ramp_cw, sizeof(currentLUT));
                 std::cerr<<"*************************SUDDEN RAMP CW " << std::endl;
              }
         } else if (benchmark_type.compare("Wind Ramp") == 0){
               if (door_opening_side.compare("CCW") == 0){
-                currentLUT = wind_ramp_ccw;
+                //currentLUT = wind_ramp_ccw;
+                memcpy(currentLUT, wind_ramp_ccw, sizeof(currentLUT));
                 std::cerr<<"*************************WIND RAMP CCW " << std::endl;
              } else {
                 std::cerr<<"*************************WIND RAMP CW " << std::endl;
-                currentLUT = wind_ramp_cw;
+                //currentLUT = wind_ramp_cw;
+                memcpy(currentLUT, wind_ramp_cw, sizeof(currentLUT));
              }
         }
     }
