@@ -117,19 +117,16 @@ namespace gazebo {
           //fine del modulo python
           // ****************** dal tutorial
         ros::NodeHandle n;
-        ros::ServiceClient client = n.serviceClient<eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams>("madrob_benchmark_params", 100);
+        ros::ServiceClient client = n.serviceClient<eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams>("madrob/gui/benchmark_params");
           //ros::ServiceClient client = rosNode->serviceClient<eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams>("madrob_benchmark_params");
         
         eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams srv;
       //  srv.request.a = atoll(argv[1]);
        // srv.request.b = atoll(argv[2]);
-        if (client.call(srv))
-        {
+        if (client.call(srv)) {
             //ROS_INFO("Sum: %ld", (long int)srv.response.benchmark_type);
             std::cerr<<"****RESPONSE: " <<  srv.response.benchmark_type << ", "<< srv.response.door_opening_side << ", "<< srv.response.robot_approach_side << std::endl; 
-        }
-            else
-        {
+        } else {
             ROS_ERROR("Failed to call service ");
             return;
         }
