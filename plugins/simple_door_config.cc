@@ -84,10 +84,15 @@ namespace gazebo {
           std::bind(&SimpleDoorConfig::OnUpdate, this));
     }
 
+
+
     // Called by the world update start event
     public: void OnUpdate() {
       
       // velocity = (position - last_position) / (((float)delta_t) / 1000.0f);
+      
+      getBenchParams();
+
       
       double angle = this->joint->GetAngle(0).Degree();
       float force = getForceFromLutValues(angle);
@@ -96,6 +101,37 @@ namespace gazebo {
       
       std::cerr << "********* I am changing he LUT values"<<
       ", with angle: "<<angle<<" and force "<< force <<", door dir: "<< std::getenv("GAZEBO_DOOR_MODEL_DIRECTION") << std::endl;
+    }
+    
+    private: void getBenchParams() {
+    
+        // *********************** dal modulo python
+  /*      get_benchmark_params = rospy.ServiceProxy('madrob/gui/benchmark_params', MadrobBenchmarkParams)
+        except rospy.ServiceException, e:
+            print "ServiceProxy failed: %s"%e
+            exit(0)
+        response = get_benchmark_params()
+        ebws.current_benchmark_name = response.benchmark_type
+        ebws.current_door_opening_side = response.door_opening_side
+        ebws.current_robot_approach_side = response.robot_approach_side */
+          //fine del modulo python
+          // ****************** dal tutorial
+        ros::NodeHandle n;
+        ros::ServiceClient client = n.serviceClient<eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams>("madrob_benchmark_params");
+        eurobench_bms_msgs_and_srvs::MadrobBenchmarkParams srv;
+      //  srv.request.a = atoll(argv[1]);
+       // srv.request.b = atoll(argv[2]);
+        if (client.call(srv))
+        {
+            //ROS_INFO("Sum: %ld", (long int)srv.response.benchmark_type);
+            std::cerr<<"****RENSPOSE: " <<  response.benchmark_type << ", "<< response.door_opening_side << ", "<< response.robot_approach_side << std::cerr; 
+        }
+            else
+        {
+            ROS_ERROR("Failed to call service add_two_ints");
+            return 1;
+        }
+          // ****************** fine dal tutorial
     }
     
     private: float getForceFromLutValues(double angle) {
