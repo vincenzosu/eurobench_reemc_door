@@ -30,7 +30,7 @@ namespace gazebo {
     /// \brief A thread the keeps running the rosQueue
     private: std::thread rosQueueThread;
 
-    private: int currentLUT[];  
+    private: int currentLUT[181];  
   
     public: SimpleDoorConfig() : ModelPlugin() {
     
