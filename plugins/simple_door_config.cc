@@ -159,7 +159,7 @@ namespace gazebo {
     }
     
     
-    private: setLUTVector(String benchmark_type, String door_opening_side){
+    private: setLUTVector(std::string benchmark_type, std::string door_opening_side){
         if (benchmark_type.compare("No Force") == 0){
             currentLUT = no_force;    
         } else if (benchmark_type.compare("Constant Force") == 0){
