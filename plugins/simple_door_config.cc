@@ -196,6 +196,8 @@ namespace gazebo {
                 memcpy(currentLUT, wind_ramp_cw, sizeof(currentLUT));
              }
         }
+        last_opening_side = door_opening_side;
+        last_benchmark_type = benchmark_type;
     }
    
     
