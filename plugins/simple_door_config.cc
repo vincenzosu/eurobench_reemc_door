@@ -129,7 +129,7 @@ namespace gazebo {
             else
         {
             ROS_ERROR("Failed to call service add_two_ints");
-            return 1;
+            return;
         }
           // ****************** fine dal tutorial
     }
