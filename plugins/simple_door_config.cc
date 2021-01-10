@@ -129,9 +129,9 @@ namespace gazebo {
     private: float getForceFromLutValues(double angle, std::string door_opening_side) {
     // interpolate the LUT
 
-        float position = static_cast<float>(angle); 
+        float p = static_cast<float>(angle); 
 
-        float p = (position + 1.0f) * 90.0f;
+        //float p = (position + 1.0f) * 90.0f;
 
         float p_ = floorf(p);
         float r_ = p - p_;
