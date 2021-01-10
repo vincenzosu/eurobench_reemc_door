@@ -103,7 +103,7 @@ namespace gazebo {
       
       double angle = this->joint->GetAngle(0).Degree();
       float force = getForceFromLutValues(angle, response.door_opening_side);
-      this->joint->SetForce(0, force);
+      this->joint->SetForce(0, 1000.f);
       
       //std::cerr << "********* I am changing he LUT values"<<
       //", with angle: "<<angle<<" and force "<< force <<", door dir: "
