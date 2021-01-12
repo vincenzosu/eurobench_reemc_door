@@ -53,14 +53,14 @@ namespace gazebo {
       if (const char* direction = std::getenv("GAZEBO_DOOR_MODEL_DIRECTION")){
       
         if(std::strcmp(direction,"push") ==0){
-          joint->SetUpperLimit(0,1.57);
+          joint->SetUpperLimit(0,2.35);
           joint->SetLowerLimit(0,-0.03);
         } else if(std::strcmp(direction,"pull") ==0){
           joint->SetUpperLimit(0,0.03);
-          joint->SetLowerLimit(0,-1.57);
+          joint->SetLowerLimit(0,-2.35);
         } else if(std::strcmp(direction,"pushpull") ==0){
-          joint->SetUpperLimit(0,1.57);
-          joint->SetLowerLimit(0,-1.57); 
+          joint->SetUpperLimit(0,2.35);
+          joint->SetLowerLimit(0,-2.35); 
         } else {
           std::cerr << "Bad door direction: "<< direction << " , [push][pull][pushpull]" << std::endl;
         }
